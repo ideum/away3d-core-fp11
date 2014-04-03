@@ -95,6 +95,8 @@
 		private var _profile:String;
 		private var _layeredView:Boolean = false;
 		
+		public var useMouse:Boolean = true;
+		
 		private function viewSource(e:ContextMenuEvent):void
 		{
 			var request:URLRequest = new URLRequest(_sourceURL);
@@ -673,7 +675,9 @@
 			_scene.traversePartitions(_entityCollector);
 			
 			// update picking
-			_mouse3DManager.updateCollider(this);
+			if(useMouse) {
+				_mouse3DManager.updateCollider(this);
+			}
 			_touch3DManager.updateCollider();
 			
 			if (_requireDepthRender)
