@@ -2,6 +2,7 @@ package away3d.materials
 {
 	import away3d.arcane;
 	import away3d.textures.Texture2DBase;
+	import away3d.textures.BitmapTexture;
 	
 	use namespace arcane;
 	
@@ -36,8 +37,10 @@ package away3d.materials
 		 * @param mipmap        Boolean : Material mipmap. Set it to false if the animation graphics have thin lines or text information in them. Default is true.
 		 */
 		
-		public function SpriteSheetMaterial(diffuses:Vector.<Texture2DBase>, normals:Vector.<Texture2DBase> = null, speculars:Vector.<Texture2DBase> = null, smooth:Boolean = true, repeat:Boolean = false, mipmap:Boolean = true)
+		public function SpriteSheetMaterial(diffuses:Vector.<Texture2DBase>, normals:Vector.<Texture2DBase> = null, speculars:Vector.<Texture2DBase> = null, smooth:Boolean = true, repeat:Boolean = false, mipmap:Object = null)
 		{
+			
+			if (!mipmap) mipmap = BitmapTexture.ENABLE_MIPMAPS;
 			
 			_diffuses = diffuses;
 			_normals = normals;

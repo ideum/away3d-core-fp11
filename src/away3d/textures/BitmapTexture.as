@@ -11,7 +11,9 @@
 	use namespace arcane;
 	
 	public class BitmapTexture extends Texture2DBase
-	{
+	{	
+		public static var ENABLE_MIPMAPS:Boolean = true;
+		
 		private static var _mipMaps:Array = [];
 		private static var _mipMapUses:Array = [];
 		
@@ -19,8 +21,10 @@
 		private var _mipMapHolder:BitmapData;
 		private var _generateMipmaps:Boolean;
 		
-		public function BitmapTexture(bitmapData:BitmapData, generateMipmaps:Boolean = true)
+		public function BitmapTexture(bitmapData:BitmapData, generateMipmaps:* = null)
 		{
+			if (!generateMipmaps) generateMipmaps = ENABLE_MIPMAPS;
+			
 			super();
 			
 			this.bitmapData = bitmapData;

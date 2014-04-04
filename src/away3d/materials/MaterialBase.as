@@ -14,6 +14,7 @@ package away3d.materials
 	import away3d.materials.passes.DepthMapPass;
 	import away3d.materials.passes.DistanceMapPass;
 	import away3d.materials.passes.MaterialPassBase;
+	import away3d.textures.BitmapTexture;
 	
 	import flash.display.BlendMode;
 	import flash.display3D.Context3D;
@@ -93,7 +94,7 @@ package away3d.materials
 		protected var _numPasses:uint;
 		protected var _passes:Vector.<MaterialPassBase>;
 		
-		protected var _mipmap:Boolean = true;
+		protected var _mipmap:Boolean = BitmapTexture.ENABLE_MIPMAPS;
 		protected var _smooth:Boolean = true;
 		protected var _repeat:Boolean;
 		

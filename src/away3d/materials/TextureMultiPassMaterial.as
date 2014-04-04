@@ -1,6 +1,7 @@
 package away3d.materials
 {
 	import away3d.textures.Texture2DBase;
+	import away3d.textures.BitmapTexture;
 	import away3d.arcane;
 	
 	use namespace arcane;
@@ -19,8 +20,10 @@ package away3d.materials
 		 * @param repeat Indicates whether the texture should be tiled when sampled. Defaults to true.
 		 * @param mipmap Indicates whether or not any used textures should use mipmapping. Defaults to true.
 		 */
-		public function TextureMultiPassMaterial(texture:Texture2DBase = null, smooth:Boolean = true, repeat:Boolean = false, mipmap:Boolean = true)
+		public function TextureMultiPassMaterial(texture:Texture2DBase = null, smooth:Boolean = true, repeat:Boolean = false, mipmap:Object = null)
 		{
+			if (!mipmap) mipmap = BitmapTexture.ENABLE_MIPMAPS;
+			
 			super();
 			this.texture = texture;
 			this.smooth = smooth;

@@ -11,6 +11,7 @@ package away3d.materials.passes
 	import away3d.errors.AbstractMethodError;
 	import away3d.materials.MaterialBase;
 	import away3d.materials.lightpickers.LightPickerBase;
+	import away3d.textures.BitmapTexture;
 	
 	import flash.display.BlendMode;
 	import flash.display3D.Context3D;
@@ -49,7 +50,7 @@ package away3d.materials.passes
 		
 		protected var _smooth:Boolean = true;
 		protected var _repeat:Boolean = false;
-		protected var _mipmap:Boolean = true;
+		protected var _mipmap:Boolean = BitmapTexture.ENABLE_MIPMAPS;
 		protected var _depthCompareMode:String = Context3DCompareMode.LESS_EQUAL;
 		
 		protected var _blendFactorSource:String = Context3DBlendFactor.ONE;
